@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
     <div class="window">
       <div class="title-bar">
         <span class="title">Portfolio Project#3</span>
@@ -29,10 +28,46 @@
       <footer>
         <p>
           Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and
-          Mandal Rajnish [2573408]
+          Mandal Rajnish [2670971]
         </p>
       </footer>
-              </div>
+    </div>
+    <div id="xp-clock">
+      <script>
+        const clock = document.getElementById("xp-clock");
+
+        function updateClockPosition() {
+          const w = window.innerWidth;
+          const h = window.innerHeight;
+
+          const rightPercent = 0.017;
+          const bottomPercent = 0.012; 
+
+          clock.style.right = w * rightPercent + "px";
+          clock.style.bottom = h * bottomPercent + "px";
+        }
+
+        function updateClock() {
+          const now = new Date();
+          let hours = now.getHours();
+          const minutes = now.getMinutes().toString().padStart(2, "0");
+          const ampm = hours >= 12 ? "PM" : "AM";
+
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+
+          clock.textContent = `${hours}:${minutes} ${ampm}`;
+        }
+
+        // Initialize
+        updateClock();
+        updateClockPosition();
+
+        // Keep updating
+        setInterval(updateClock, 1000);
+        window.addEventListener("resize", updateClockPosition);
+      </script>
+    </div>
     <div id="recycle-bin">
       <script>
         const hotspot = document.getElementById("recycle-bin");
@@ -67,8 +102,6 @@
             e.clientX <= rect.right &&
             e.clientY >= rect.top &&
             e.clientY <= rect.bottom;
-
-          document.body.style.cursor = isOver ? "pointer" : "Assets/Cursors/arrow.cur";
         });
 
         hotspot.addEventListener("click", function () {
@@ -76,6 +109,5 @@
         });
       </script>
     </div>
-
   </body>
 </html>
