@@ -1,7 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">    
-    <body>
-        <P>HAHAHAHA</P>
-        <p>HEHEHEHE</p>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Project#3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <div class="window">
+      <div class="title-bar">
+        <span class="title">Portfolio Project#3</span>
+      </div>
+      <div class="window-content">
+        <p class="instruction">Select a tool to continue:</p>
+
+        <div class="button-container">
+          <a href="Questionaire/index.html" class="xp-button">
+            Online Questionnaire
+          </a>
+
+          <a href="Observation-tool/index.html" class="xp-button">
+            Observation Tool
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and
+          Mandal Rajnish [2573408]
+        </p>
+      </footer>
+              </div>
+    <div id="recycle-bin">
+      <script>
+        const hotspot = document.getElementById("recycle-bin");
+
+        function updateHotspot() {
+          const w = window.innerWidth;
+          const h = window.innerHeight;
+
+          const leftPercent = 0.91;
+          const rightPercent = 0.99;
+          const topPercent = 0.81;
+          const bottomPercent = 0.9;
+
+          const left = w * leftPercent;
+          const width = w * (rightPercent - leftPercent);
+          const top = h * topPercent;
+          const height = h * (bottomPercent - topPercent);
+
+          hotspot.style.left = left + "px";
+          hotspot.style.top = top + "px";
+          hotspot.style.width = width + "px";
+          hotspot.style.height = height + "px";
+        }
+
+        updateHotspot();
+        window.addEventListener("resize", updateHotspot);
+
+        document.addEventListener("mousemove", function (e) {
+          const rect = hotspot.getBoundingClientRect();
+          const isOver =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
+
+          document.body.style.cursor = isOver ? "pointer" : "Assets/Cursors/arrow.cur";
+        });
+
+        hotspot.addEventListener("click", function () {
+          window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+        });
+      </script>
+    </div>
+
+  </body>
 </html>

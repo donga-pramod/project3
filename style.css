@@ -1,0 +1,129 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    background-image: url("Assets/winxppro.png");
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: url("Assets/Cursors/arrow.cur"), auto;
+}
+
+.window {
+    background-color: #ece9d8;
+    border: 2px solid #0054e3;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 480px;
+    cursor: no-drop;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #0a246a, #a6caf0);
+    color: white;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    flex: 1;
+}
+
+
+.window-content {
+    padding: 30px 25px 24px;
+    text-align: center;
+}
+
+.instruction {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 28px;
+}
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+
+.xp-button {
+    display: inline-block;
+    width: 260px;
+    padding: 10px 16px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ece9d8;
+    border: 2px solid;
+    border-color: #fff #848484 #848484 #fff;
+    cursor: url("Assets/Cursors/harrow.cur"), auto;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.xp-button:hover {
+    background-color: #f5f2e5;
+}
+
+.xp-button:active {
+    border-color: #848484 #fff #fff #848484;
+    box-shadow: none;
+    padding: 11px 15px 9px 17px;
+}
+
+
+footer {
+    border-top: 1px solid #b0b0b0;
+    padding: 9px 14px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.35;
+    margin: 0;
+}
+
+@media (max-width: 500px) {
+    .window {
+        max-width: 100%;
+    }
+
+    .xp-button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .window-content {
+        padding: 24px 18px 20px;
+    }
+
+    footer p {
+        font-size: 10px;
+    }
+}
+
+
+/*Easter Eggs*/
+
+#recycle-bin {
+    position: fixed;
+}
