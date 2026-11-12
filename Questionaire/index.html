@@ -1,1 +1,126 @@
-<P>Hello</P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Chaotic Is Your Existence?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title">How Chaotic Is Your Existence? — Portfolio Project#3</span>
+            <a href="../index.html" class="close-btn" title="Back to Start">×</a>
+        </div>
+
+        <div class="window-content">
+            <p class="intro">
+                Welcome, human (or possibly a well-disguised raccoon).  
+                Answer honestly. The system is watching... and judging.
+            </p>
+
+            <form id="chaosForm">
+                <!-- 1. Age -->
+                <div class="form-group">
+                    <label for="age">1. How many times have you survived around the sun?</label>
+                    <input type="number" id="age" name="age" min="10" placeholder="e.g. 24" required>
+                </div>
+
+                <!-- 2. Gender -->
+                <div class="form-group">
+                    <label>2. Gender identity (pick whatever feels right today)</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        <label><input type="radio" name="gender" value="Non-binary"> Non-binary</label>
+                        <label><input type="radio" name="gender" value="It's complicated"> It’s complicated</label>
+                        <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
+                    </div>
+                </div>
+
+                <!-- 3. Sleep slider -->
+                <div class="form-group">
+                    <label for="sleep">
+                        3. Hours of sleep per night: 
+                        <span id="sleepValue" class="live-value">7</span>
+                    </label>
+                    <input type="range" id="sleep" name="sleep" min="0" max="14" value="7" step="0.5">
+                    <div id="sleepComment" class="comment">Acceptable. Barely.</div>
+                </div>
+
+                <!-- 4. Exercise slider -->
+                <div class="form-group">
+                    <label for="exercise">
+                        4. How often do you exercise? 
+                        <span id="exerciseValue" class="live-value">3</span>/10
+                    </label>
+                    <input type="range" id="exercise" name="exercise" min="0" max="10" value="3">
+                    <div id="exerciseComment" class="comment">You walk to the fridge. That counts.</div>
+                </div>
+
+                <!-- 5. Chaos level -->
+                <div class="form-group">
+                    <label for="chaos">
+                        5. On a scale of 1–10, how chaotic is your daily life?
+                        <span id="chaosValue" class="live-value">5</span>
+                    </label>
+                    <input type="range" id="chaos" name="chaos" min="1" max="10" value="5">
+                    <div id="chaosComment" class="comment">Mild chaos detected.</div>
+                </div>
+
+                <!-- 6. Dopamine sources -->
+                <div class="form-group">
+                    <label>6. Primary sources of dopamine (select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="dopamine" value="Coffee"> Coffee / Caffeine</label>
+                        <label><input type="checkbox" name="dopamine" value="Social Media"> Scrolling endlessly</label>
+                        <label><input type="checkbox" name="dopamine" value="Food"> Food (especially at 1 AM)</label>
+                        <label><input type="checkbox" name="dopamine" value="Memes"> Memes</label>
+                        <label><input type="checkbox" name="dopamine" value="Validation"> External validation</label>
+                        <label><input type="checkbox" name="dopamine" value="Chaos"> Creating chaos itself</label>
+                        <label><input type="checkbox" name="dopamine" value="Nothing"> Nothing. I am empty inside.</label>
+                    </div>
+                </div>
+
+                <!-- 7. Browser tabs -->
+                <div class="form-group">
+                    <label for="tabs">7. How many browser tabs do you currently have open?</label>
+                    <input type="number" id="tabs" name="tabs" min="0" max="500" placeholder="Be honest..." required>
+                </div>
+
+                <!-- 8. Unread emails -->
+                <div class="form-group">
+                    <label for="emails">8. Unread emails (approximate is fine, we won’t judge… much)</label>
+                    <input type="number" id="emails" name="emails" min="0" placeholder="e.g. 147" required>
+                </div>
+
+                <!-- 9. Confession -->
+                <div class="form-group">
+                    <label for="confession">9. Final confession (optional but encouraged)</label>
+                    <textarea id="confession" name="confession" rows="3" placeholder="Tell the system your secrets..."></textarea>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-row">
+                    <button type="submit" class="xp-button primary">Generate Chaos Report</button>
+                    <button type="button" id="downloadBtn" class="xp-button">Download My Data (CSV)</button>
+                    <button type="button" id="clearBtn" class="xp-button">Clear Form</button>
+                </div>
+            </form>
+
+            <!-- Result area -->
+            <div id="result" class="result hidden">
+                <h3>Your Chaos Report</h3>
+                <p id="reportText"></p>
+                <p class="saved-note">✓ Data saved locally. You can download it anytime.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2573408]</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

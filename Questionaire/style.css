@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    background-color: #3a6ea5;
+    background-image: linear-gradient(to bottom, #5a9bd5 0%, #3a6ea5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+    cursor: url('../Assets/Cursors/arrow.cur'), default;
+}
+
+/* Main window */
+.window {
+    background-color: #ece9d8;
+    border: 2px solid #0054e3;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    max-width: 620px;
+}
+
+/* Title bar */
+.title-bar {
+    background: linear-gradient(to right, #0a246a, #a6caf0);
+    color: white;
+    padding: 6px 8px 6px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    flex: 1;
+}
+
+.close-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    width: 20px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: linear-gradient(to bottom, #e81123, #c50f1f);
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background: #e81123;
+}
+
+/* Content */
+.window-content {
+    padding: 18px 22px 12px;
+}
+
+.intro {
+    font-size: 13px;
+    margin-bottom: 18px;
+    line-height: 1.45;
+    color: #222;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #000;
+}
+
+.live-value {
+    font-weight: bold;
+    color: #0a246a;
+}
+
+/* Inputs */
+input[type="number"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 6px 8px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    border: 2px solid;
+    border-color: #848484 #fff #fff #848484;
+    background: #fff;
+    outline: none;
+}
+
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #0a246a;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Range sliders */
+input[type="range"] {
+    width: 100%;
+    margin: 6px 0 4px;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+}
+
+/* Comments under sliders */
+.comment {
+    font-size: 12px;
+    color: #444;
+    font-style: italic;
+    min-height: 18px;
+}
+
+/* Radio & Checkbox groups */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    margin-bottom: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.xp-button {
+    display: inline-block;
+    padding: 7px 14px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ece9d8;
+    border: 2px solid;
+    border-color: #fff #848484 #848484 #fff;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.xp-button:hover {
+    background-color: #f5f2e5;
+}
+
+.xp-button:active {
+    border-color: #848484 #fff #fff #848484;
+    box-shadow: none;
+}
+
+.xp-button.primary {
+    background-color: #d4d0c8;
+    font-weight: bold;
+}
+
+/* Result box */
+.result {
+    margin-top: 20px;
+    padding: 14px;
+    background: #fff;
+    border: 2px solid;
+    border-color: #848484 #fff #fff #848484;
+}
+
+.result.hidden {
+    display: none;
+}
+
+.result h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #0a246a;
+}
+
+#reportText {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.saved-note {
+    font-size: 12px;
+    color: #006600;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #b0b0b0;
+    padding: 9px 14px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 11px;
+    color: #444;
+    line-height: 1.35;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+    .window-content {
+        padding: 14px 14px 10px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .xp-button {
+        width: 100%;
+    }
+}
