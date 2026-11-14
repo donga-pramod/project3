@@ -3,121 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Chaotic Is Your Existence?</title>
+    <title>Dating Profile Questionnaire</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="window">
         <div class="title-bar">
-            <span class="title">How Chaotic Is Your Existence? — Portfolio Project#3</span>
+            <span class="title">Dating Profile Questionnaire — Portfolio Project#3</span>
             <a href="../index.html" class="close-btn" title="Back to Start">×</a>
         </div>
 
         <div class="window-content">
             <p class="intro">
-                Welcome, human (or possibly a well-disguised raccoon).  
-                Answer honestly. The system is watching... and judging.
+                Basic profile information.  
             </p>
 
-            <form id="chaosForm">
-                <!-- 1. Age -->
+            <form id="datingForm">
                 <div class="form-group">
-                    <label for="age">1. How many times have you survived around the sun?</label>
-                    <input type="number" id="age" name="age" min="10" placeholder="e.g. 24" required>
+                    <label for="displayName">1. Display Name</label>
+                    <input type="text" id="displayName" name="displayName" required>
                 </div>
 
-                <!-- 2. Gender -->
+                <!-- 2. Age -->
                 <div class="form-group">
-                    <label>2. Gender identity (pick whatever feels right today)</label>
+                    <label for="age">2. Age</label>
+                    <input type="number" id="age" name="age" placeholder="e.g. 25" required>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Gender</label>
                     <div class="radio-group">
                         <label><input type="radio" name="gender" value="Male" required> Male</label>
                         <label><input type="radio" name="gender" value="Female"> Female</label>
                         <label><input type="radio" name="gender" value="Non-binary"> Non-binary</label>
-                        <label><input type="radio" name="gender" value="It's complicated"> It’s complicated</label>
                         <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
                     </div>
                 </div>
 
-                <!-- 3. Sleep slider -->
                 <div class="form-group">
-                    <label for="sleep">
-                        3. Hours of sleep per night: 
-                        <span id="sleepValue" class="live-value">7</span>
-                    </label>
-                    <input type="range" id="sleep" name="sleep" min="0" max="14" value="7" step="0.5">
-                    <div id="sleepComment" class="comment">Acceptable. Barely.</div>
-                </div>
-
-                <!-- 4. Exercise slider -->
-                <div class="form-group">
-                    <label for="exercise">
-                        4. How often do you exercise? 
-                        <span id="exerciseValue" class="live-value">3</span>/10
-                    </label>
-                    <input type="range" id="exercise" name="exercise" min="0" max="10" value="3">
-                    <div id="exerciseComment" class="comment">You walk to the fridge. That counts.</div>
-                </div>
-
-                <!-- 5. Chaos level -->
-                <div class="form-group">
-                    <label for="chaos">
-                        5. On a scale of 1–10, how chaotic is your daily life?
-                        <span id="chaosValue" class="live-value">5</span>
-                    </label>
-                    <input type="range" id="chaos" name="chaos" min="1" max="10" value="5">
-                    <div id="chaosComment" class="comment">Mild chaos detected.</div>
-                </div>
-
-                <!-- 6. Dopamine sources -->
-                <div class="form-group">
-                    <label>6. Primary sources of dopamine (select all that apply)</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="dopamine" value="Coffee"> Coffee / Caffeine</label>
-                        <label><input type="checkbox" name="dopamine" value="Social Media"> Scrolling endlessly</label>
-                        <label><input type="checkbox" name="dopamine" value="Food"> Food (especially at 1 AM)</label>
-                        <label><input type="checkbox" name="dopamine" value="Memes"> Memes</label>
-                        <label><input type="checkbox" name="dopamine" value="Validation"> External validation</label>
-                        <label><input type="checkbox" name="dopamine" value="Chaos"> Creating chaos itself</label>
-                        <label><input type="checkbox" name="dopamine" value="Nothing"> Nothing. I am empty inside.</label>
+                    <label>4. Looking for</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="lookingFor" value="Men" required> Men</label>
+                        <label><input type="radio" name="lookingFor" value="Women"> Women</label>
+                        <label><input type="radio" name="lookingFor" value="Everyone"> Everyone</label>
                     </div>
                 </div>
 
-                <!-- 7. Browser tabs -->
                 <div class="form-group">
-                    <label for="tabs">7. How many browser tabs do you currently have open?</label>
-                    <input type="number" id="tabs" name="tabs" min="0" max="500" placeholder="Be honest..." required>
+                    <label for="height">5. Height (cm)</label>
+                    <input type="number" id="height" name="height" required>
                 </div>
 
-                <!-- 8. Unread emails -->
                 <div class="form-group">
-                    <label for="emails">8. Unread emails (approximate is fine, we won’t judge… much)</label>
-                    <input type="number" id="emails" name="emails" min="0" placeholder="e.g. 147" required>
+                    <label for="city">6. City / Location</label>
+                    <input type="text" id="city" name="city" required>
                 </div>
 
-                <!-- 9. Confession -->
                 <div class="form-group">
-                    <label for="confession">9. Final confession (optional but encouraged)</label>
-                    <textarea id="confession" name="confession" rows="3" placeholder="Tell the system your secrets..."></textarea>
+                    <label for="education">7. Education Level</label>
+                    <select id="education" name="education" required>
+                        <option value="">Select...</option>
+                        <option value="High School">High School</option>
+                        <option value="Bachelor">Bachelor’s Degree</option>
+                        <option value="Master">Master’s Degree</option>
+                        <option value="PhD">PhD / Doctorate</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
 
-                <!-- Buttons -->
+                <div class="form-group">
+                    <label>8. Interests</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="interests" value="Music"> Music</label>
+                        <label><input type="checkbox" name="interests" value="Movies"> Movies / Series</label>
+                        <label><input type="checkbox" name="interests" value="Sports"> Sports</label>
+                        <label><input type="checkbox" name="interests" value="Travel"> Travel</label>
+                        <label><input type="checkbox" name="interests" value="Reading"> Reading</label>
+                        <label><input type="checkbox" name="interests" value="Cooking"> Cooking</label>
+                        <label><input type="checkbox" name="interests" value="Gaming"> Gaming</label>
+                        <label><input type="checkbox" name="interests" value="Art"> Art / Design</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="about">9. About Me (short bio)</label>
+                    <textarea id="about" name="about" rows="3" placeholder="a short introduction..."></textarea>
+                </div>
+
                 <div class="button-row">
-                    <button type="submit" class="xp-button primary">Generate Chaos Report</button>
-                    <button type="button" id="downloadBtn" class="xp-button">Download My Data (CSV)</button>
+                    <button type="submit" class="xp-button primary">Submit Profile</button>
+                    <button type="button" id="downloadBtn" class="xp-button">Download Dataset (CSV)</button>
                     <button type="button" id="clearBtn" class="xp-button">Clear Form</button>
                 </div>
             </form>
 
             <!-- Result area -->
             <div id="result" class="result hidden">
-                <h3>Your Chaos Report</h3>
+                <h3>Profile Submitted</h3>
                 <p id="reportText"></p>
-                <p class="saved-note">✓ Data saved locally. You can download it anytime.</p>
+                <p class="saved-note">✓ Data saved locally. You can download the full dataset.</p>
             </div>
         </div>
 
         <footer>
-            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2573408]</p>
+            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2670971]</p>
         </footer>
     </div>
 
