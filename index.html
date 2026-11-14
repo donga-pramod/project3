@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Recycle Bin Easter Egg -->
+    <div id="recycle-hotspot" title="Recycle Bin"></div>
+    <!-- Main Navigation Window -->
     <div class="window">
       <div class="title-bar">
         <span class="title">Portfolio Project#3</span>
@@ -15,11 +18,19 @@
         <p class="instruction">Select a tool to continue:</p>
 
         <div class="button-container">
-          <a href="Questionaire/index.html" class="xp-button">
+          <a
+            href="Questionaire/index.html"
+            class="xp-button"
+            onclick="openApp('questionnaire')"
+          >
             Online Questionnaire
           </a>
 
-          <a href="Observation-tool/index.html" class="xp-button">
+          <a
+            href="Observation-tool/index.html"
+            class="xp-button"
+            onclick="openApp('observation')"
+          >
             Observation Tool
           </a>
         </div>
@@ -28,86 +39,86 @@
       <footer>
         <p>
           Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and
-          Mandal Rajnish [2670971]
+          Mandal Rajnish [2573408]
         </p>
       </footer>
     </div>
-    <div id="xp-clock">
-      <script>
-        const clock = document.getElementById("xp-clock");
 
-        function updateClockPosition() {
-          const w = window.innerWidth;
-          const h = window.innerHeight;
+    <!-- Windows XP Taskbar -->
+    <div id="taskbar">
+      <div class="start-button" id="startButton">
+        <div class="start-logo"></div>
+        <span>Start</span>
+      </div>
 
-          const rightPercent = 0.017;
-          const bottomPercent = 0.012; 
+      <div class="taskbar-apps" id="taskbarApps">
+        <!-- Open app buttons will appear here -->
+      </div>
 
-          clock.style.right = w * rightPercent + "px";
-          clock.style.bottom = h * bottomPercent + "px";
-        }
-
-        function updateClock() {
-          const now = new Date();
-          let hours = now.getHours();
-          const minutes = now.getMinutes().toString().padStart(2, "0");
-          const ampm = hours >= 12 ? "PM" : "AM";
-
-          hours = hours % 12;
-          hours = hours ? hours : 12;
-
-          clock.textContent = `${hours}:${minutes} ${ampm}`;
-        }
-
-        // Initialize
-        updateClock();
-        updateClockPosition();
-
-        // Keep updating
-        setInterval(updateClock, 1000);
-        window.addEventListener("resize", updateClockPosition);
-      </script>
+      <div class="system-tray">
+        <div id="xp-clock">12:00 AM</div>
+      </div>
     </div>
-    <div id="recycle-bin">
-      <script>
-        const hotspot = document.getElementById("recycle-bin");
 
-        function updateHotspot() {
-          const w = window.innerWidth;
-          const h = window.innerHeight;
-
-          const leftPercent = 0.91;
-          const rightPercent = 0.99;
-          const topPercent = 0.81;
-          const bottomPercent = 0.9;
-
-          const left = w * leftPercent;
-          const width = w * (rightPercent - leftPercent);
-          const top = h * topPercent;
-          const height = h * (bottomPercent - topPercent);
-
-          hotspot.style.left = left + "px";
-          hotspot.style.top = top + "px";
-          hotspot.style.width = width + "px";
-          hotspot.style.height = height + "px";
+    <script>
+      function openApp(appName) {
+        let openApps = JSON.parse(localStorage.getItem("openApps") || "[]");
+        if (!openApps.includes(appName)) {
+          openApps.push(appName);
+          localStorage.setItem("openApps", JSON.stringify(openApps));
         }
+      }
 
-        updateHotspot();
-        window.addEventListener("resize", updateHotspot);
+      function closeApp(appName) {
+        let openApps = JSON.parse(localStorage.getItem("openApps") || "[]");
+        openApps = openApps.filter((app) => app !== appName);
+        localStorage.setItem("openApps", JSON.stringify(openApps));
+        renderTaskbar();
+      }
 
-        document.addEventListener("mousemove", function (e) {
-          const rect = hotspot.getBoundingClientRect();
-          const isOver =
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom;
+      function renderTaskbar() {
+        const container = document.getElementById("taskbarApps");
+        const openApps = JSON.parse(localStorage.getItem("openApps") || "[]");
+        container.innerHTML = "";
+
+        openApps.forEach((app) => {
+          const btn = document.createElement("a");
+          btn.className = "taskbar-app";
+
+          if (app === "questionnaire") {
+            btn.href = "Questionaire/index.html";
+            btn.textContent = "Questionnaire";
+          } else if (app === "observation") {
+            btn.href = "Observation-tool/index.html";
+            btn.textContent = "Observation Tool";
+          }
+
+          container.appendChild(btn);
         });
+      }
 
-        hotspot.addEventListener("click", function () {
+      // ===== Live Clock =====
+      function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        document.getElementById("xp-clock").textContent =
+          `${hours}:${minutes} ${ampm}`;
+      }
+
+      // Initialize
+      updateClock();
+      setInterval(updateClock, 1000);
+      renderTaskbar();
+
+      document
+        .getElementById("recycle-hotspot")
+        .addEventListener("click", function () {
           window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
         });
-      </script>
-    </div>
+    </script>
   </body>
 </html>
