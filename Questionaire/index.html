@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dating Profile Questionnaire</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Assets/Taskbar/taskbar.css">
 </head>
 <body>
     <div class="window">
         <div class="title-bar">
             <span class="title">Dating Profile Questionnaire — Portfolio Project#3</span>
-            <a href="../index.html" class="close-btn" title="Back to Start">×</a>
+            <div class="window-controls">
+                <button class="control-btn minimize-btn" title="Minimize" onclick="minimizeApp('questionnaire')">_</button>
+                <button class="control-btn close-btn" title="Close" onclick="closeAndGoHome()">×</button>
+            </div>
         </div>
 
         <div class="window-content">
             <p class="intro">
-                Basic profile information.  
+                Please fill in your basic profile information.  
+                All responses are stored locally and can be downloaded as a dataset.
             </p>
 
             <form id="datingForm">
+                <!-- 1. Display Name -->
                 <div class="form-group">
                     <label for="displayName">1. Display Name</label>
-                    <input type="text" id="displayName" name="displayName" required>
+                    <input type="text" id="displayName" name="displayName" placeholder="How you want to appear" required>
                 </div>
 
                 <!-- 2. Age -->
@@ -30,6 +36,7 @@
                     <input type="number" id="age" name="age" placeholder="e.g. 25" required>
                 </div>
 
+                <!-- 3. Gender -->
                 <div class="form-group">
                     <label>3. Gender</label>
                     <div class="radio-group">
@@ -40,6 +47,7 @@
                     </div>
                 </div>
 
+                <!-- 4. Looking for -->
                 <div class="form-group">
                     <label>4. Looking for</label>
                     <div class="radio-group">
@@ -49,16 +57,19 @@
                     </div>
                 </div>
 
+                <!-- 5. Height -->
                 <div class="form-group">
                     <label for="height">5. Height (cm)</label>
-                    <input type="number" id="height" name="height" required>
+                    <input type="number" id="height" name="height" placeholder="e.g. 170" required>
                 </div>
 
+                <!-- 6. City -->
                 <div class="form-group">
                     <label for="city">6. City / Location</label>
-                    <input type="text" id="city" name="city" required>
+                    <input type="text" id="city" name="city" placeholder="e.g. Kathmandu" required>
                 </div>
 
+                <!-- 7. Education -->
                 <div class="form-group">
                     <label for="education">7. Education Level</label>
                     <select id="education" name="education" required>
@@ -71,8 +82,9 @@
                     </select>
                 </div>
 
+                <!-- 8. Interests -->
                 <div class="form-group">
-                    <label>8. Interests</label>
+                    <label>8. Interests (select all that apply)</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" name="interests" value="Music"> Music</label>
                         <label><input type="checkbox" name="interests" value="Movies"> Movies / Series</label>
@@ -85,11 +97,13 @@
                     </div>
                 </div>
 
+                <!-- 9. About Me -->
                 <div class="form-group">
                     <label for="about">9. About Me (short bio)</label>
-                    <textarea id="about" name="about" rows="3" placeholder="a short introduction..."></textarea>
+                    <textarea id="about" name="about" rows="3" placeholder="Write a short introduction..."></textarea>
                 </div>
 
+                <!-- Buttons -->
                 <div class="button-row">
                     <button type="submit" class="xp-button primary">Submit Profile</button>
                     <button type="button" id="downloadBtn" class="xp-button">Download Dataset (CSV)</button>
@@ -101,15 +115,38 @@
             <div id="result" class="result hidden">
                 <h3>Profile Submitted</h3>
                 <p id="reportText"></p>
-                <p class="saved-note">✓ Data saved locally. You can download the full dataset.</p>
+                <p class="saved-note">✓ Data saved locally. You can download the full dataset anytime.</p>
             </div>
         </div>
 
         <footer>
-            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2670971]</p>
+            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2573408]</p>
         </footer>
     </div>
 
+    <!-- Windows XP Taskbar -->
+    <div id="taskbar">
+        <a href="../index.html" class="start-button" title="Start">
+            <div class="start-logo"></div>
+            <span>start</span>
+        </a>
+        <div class="taskbar-apps" id="taskbarApps"></div>
+        <div class="system-tray">
+            <div id="xp-clock">12:00 AM</div>
+        </div>
+    </div>
+
+    <script src="../Assets/Taskbar/taskbar.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Mark this app as open when the page loads
+        openApp('questionnaire');
+
+        // Close button: remove from open apps and go home
+        function closeAndGoHome() {
+            closeApp('questionnaire');
+            window.location.href = '../index.html';
+        }
+    </script>
 </body>
 </html>

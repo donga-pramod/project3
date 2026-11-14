@@ -1,3 +1,5 @@
+/* Windows XP inspired - Questionnaire (self-contained) */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 30px 15px;
+    padding: 30px 15px 50px;
     cursor: url('../Assets/Cursors/arrow.cur'), default;
 }
 
@@ -29,7 +31,7 @@ body {
 .title-bar {
     background: linear-gradient(to right, #0a246a, #a6caf0);
     color: white;
-    padding: 6px 8px 6px 10px;
+    padding: 5px 6px 5px 10px;
     font-size: 13px;
     font-weight: bold;
     display: flex;
@@ -39,21 +41,46 @@ body {
 
 .title {
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.close-btn {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    width: 20px;
-    height: 18px;
+/* Window controls (Minimize + Close) */
+.window-controls {
+    display: flex;
+    gap: 2px;
+    margin-left: 8px;
+}
+
+.control-btn {
+    width: 22px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: linear-gradient(to bottom, #e81123, #c50f1f);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
     line-height: 1;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    padding: 0;
+}
+
+.minimize-btn {
+    background: linear-gradient(to bottom, #3b7ae0, #245DDB);
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+
+.minimize-btn:hover {
+    background: linear-gradient(to bottom, #4b8af0, #346de0);
+}
+
+.close-btn {
+    background: linear-gradient(to bottom, #e81123, #c50f1f);
+    font-size: 16px;
 }
 
 .close-btn:hover {
@@ -92,7 +119,8 @@ body {
 /* Inputs */
 input[type="number"],
 input[type="text"],
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 6px 8px;
     font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
@@ -104,7 +132,9 @@ textarea {
 }
 
 input[type="number"]:focus,
-textarea:focus {
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
     border-color: #0a246a;
 }
 
@@ -113,19 +143,8 @@ textarea {
     min-height: 70px;
 }
 
-/* Range sliders */
-input[type="range"] {
-    width: 100%;
-    margin: 6px 0 4px;
+select {
     cursor: url('../Assets/Cursors/harrow.cur'), pointer;
-}
-
-/* Comments under sliders */
-.comment {
-    font-size: 12px;
-    color: #444;
-    font-style: italic;
-    min-height: 18px;
 }
 
 /* Radio & Checkbox groups */
@@ -231,6 +250,7 @@ footer p {
     font-size: 11px;
     color: #444;
     line-height: 1.35;
+    margin: 0;
 }
 
 /* Responsive */

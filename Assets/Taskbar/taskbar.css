@@ -1,0 +1,118 @@
+/* ========================================
+   Windows XP Taskbar - Shared Component
+======================================== */
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: #245DDB;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    padding: 0;
+    border-top: 1px solid #5a91e0;
+}
+
+/* Start Button */
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(to bottom, #3c9a2c 0%, #2d8a1f 45%, #2d8a1f 55%, #1e6c14 100%);
+    border: none;
+    border-radius: 0 14px 14px 0;
+    padding: 0 16px 0 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+    font-family: Tahoma;
+    height: 100%;
+    width: 100px;
+    margin: 2px 4px 2px 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    position: relative;
+    text-decoration: none;
+}
+
+.start-button:hover {
+    filter: brightness(1.08);
+}
+
+.start-button:active {
+    filter: brightness(0.92);
+}
+
+/* Windows logo before Start text */
+.start-logo {
+    width: 16px;
+    height: 14px;
+    background: 
+        linear-gradient(to right, #f25022 50%, #7fba00 50%),
+        linear-gradient(to right, #00a4ef 50%, #ffb900 50%);
+    background-size: 100% 50%;
+    background-position: top left, bottom left;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+}
+
+/* Open Applications area */
+.taskbar-apps {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    overflow: hidden;
+    height: 26px;
+    align-items: center;
+    padding-left: 2px;
+}
+
+.taskbar-app {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    background: linear-gradient(to bottom, #3b7ae0 0%, #245DDB 100%);
+    border: 1px solid #1a4cb0;
+    color: white;
+    font-size: 11px;
+    text-decoration: none;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.taskbar-app:hover {
+    background: linear-gradient(to bottom, #4b8af0 0%, #346de0 100%);
+}
+
+.taskbar-app.active {
+    background: linear-gradient(to bottom, #1a4cb0 0%, #163d90 100%);
+    border-color: #0d2a6c;
+}
+
+/* System Tray + Clock */
+.system-tray {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 12px;
+    background-color: #0D9BF0;
+    border-left: 1px solid #5cb8f5;
+    margin-left: 4px;
+}
+
+#xp-clock {
+    color: white;
+    font-size: 18px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    white-space: nowrap;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}

@@ -109,122 +109,13 @@ footer p {
     margin: 0;
 }
 
-/* ========================================
-   Windows XP Taskbar (Classic Style)
-======================================== */
-#taskbar {
+/* Recycle Bin Hotspot */
+#recycle-hotspot {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    width: 100%;
-    background-color: #245DDB;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    border-top: 1px solid #5a91e0;
-}
-
-/* Start Button */
-.start-button {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: linear-gradient(to bottom, #3c9a2c 0%, #2d8a1f 45%, #2d8a1f 55%, #1e6c14 100%);
-    border: none;
-    border-radius: 0 14px 14px 0;
-    padding: 0 16px 0 6px;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    font-style: italic;
-    font-family:Tahoma;
-    cursor: url('Assets/Cursors/harrow.cur'), pointer;
-    height: 100%;
-    width: 8%;
-    margin: 2px 4px 2px 0;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-    position: relative;
-}
-
-.start-button:hover {
-    filter: brightness(1.08);
-}
-
-.start-button:active {
-    filter: brightness(0.92);
-}
-
-/* Windows logo before Start text */
-.start-logo {
-    width: 16px;
-    height: 14px;
-    background: 
-        linear-gradient(to right, #f25022 50%, #7fba00 50%),
-        linear-gradient(to right, #00a4ef 50%, #ffb900 50%);
-    background-size: 100% 50%;
-    background-position: top left, bottom left;
-    background-repeat: no-repeat;
-    border: 1px solid rgba(255,255,255,0.3);
-    flex-shrink: 0;
-}
-
-/* Open Applications area */
-.taskbar-apps {
-    display: flex;
-    gap: 2px;
-    flex: 1;
-    overflow: hidden;
-    height: 26px;
-    align-items: center;
-    padding-left: 2px;
-}
-
-.taskbar-app {
-    display: flex;
-    align-items: center;
-    height: 24px;
-    padding: 0 10px;
-    background: linear-gradient(to bottom, #3b7ae0 0%, #245DDB 100%);
-    border: 1px solid #1a4cb0;
-    color: white;
-    font-size: 11px;
-    text-decoration: none;
-    white-space: nowrap;
-    max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: url('Assets/Cursors/harrow.cur'), pointer;
-    margin-top: 1px;
-}
-
-.taskbar-app:hover {
-    background: linear-gradient(to bottom, #4b8af0 0%, #346de0 100%);
-}
-
-.taskbar-app.active {
-    background: linear-gradient(to bottom, #1a4cb0 0%, #163d90 100%);
-    border-color: #0d2a6c;
-}
-
-/* System Tray + Clock */
-.system-tray {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 0px 12px;
-    background-color: #0D9BF0;
-    border-left: 1px solid #5cb8f5;
-    margin-left: 4px;
-}
-
-#xp-clock {
-    color: white;
-    font-size: 15px;
-    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
-    white-space: nowrap;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    bottom: 48px;
+    right: 22px;
+    width: 70px;
+    height: 78px;
 }
 
 /* Responsive */
@@ -245,20 +136,4 @@ footer p {
     footer p {
         font-size: 10px;
     }
-
-    .taskbar-app {
-        max-width: 100px;
-        font-size: 10px;
-        padding: 0 7px;
-    }
-}
-
-
-#recycle-hotspot {
-    position: fixed;
-    bottom: 48px;
-    right: 22px;
-    width: 70px;
-    height: 78px;
-    z-index: 100;
 }
