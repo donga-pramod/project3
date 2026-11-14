@@ -19,7 +19,6 @@ body {
     align-items: center;
     padding: 20px;
     cursor: url('Assets/Cursors/arrow.cur'), default;
-    overflow: hidden;
 }
 
 /* Main window frame */
