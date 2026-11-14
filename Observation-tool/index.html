@@ -12,6 +12,7 @@
         <div class="title-bar">
             <span class="title">Human Safari — Observation Tool</span>
             <div class="window-controls">
+                <button class="control-btn help-btn" title="Help" onclick="openHelp()">?</button>
                 <button class="control-btn minimize-btn" title="Minimize" onclick="minimizeApp('observation')">_</button>
                 <button class="control-btn close-btn" title="Close" onclick="closeAndGoHome()">×</button>
             </div>
@@ -80,11 +81,58 @@
         </footer>
     </div>
 
+    <!-- Help Dialog (XP style) -->
+    <div id="helpOverlay" class="help-overlay hidden">
+        <div class="help-dialog">
+            <div class="help-title-bar">
+                <span>Human Safari Help</span>
+                <button class="control-btn close-btn" onclick="closeHelp()">×</button>
+            </div>
+            <div class="help-body">
+                <p><strong>What is Human Safari?</strong></p>
+                <p>
+                    Human Safari is an observation tool. You observe people in real life 
+                    and “catch” them based on what they are doing — just like a game.
+                </p>
+
+                <p><strong>How to play:</strong></p>
+                <ol>
+                    <li>Look around you (outside, campus, cafe, etc.)</li>
+                    <li>Select a category that matches what you see</li>
+                    <li>Optionally write a short note</li>
+                    <li>Click the <strong>Catch!</strong> button</li>
+                    <li>Your capture is saved and you earn points</li>
+                </ol>
+
+                <p><strong>Categories & Points:</strong></p>
+                <ul>
+                    <li>Phone Zombie — 10 pts</li>
+                    <li>Matching Couple — 25 pts</li>
+                    <li>Headphones Warrior — 10 pts</li>
+                    <li>Food Walker — 15 pts</li>
+                    <li>Self Talker — 20 pts</li>
+                    <li>Fast Walker — 10 pts</li>
+                    <li>Lost Tourist — 30 pts</li>
+                    <li>Other — 5 pts</li>
+                </ul>
+
+                <p>
+                    All captures are stored locally and can be downloaded as a CSV dataset 
+                    for research use.
+                </p>
+
+                <div class="help-footer">
+                    <button class="xp-button primary" onclick="closeHelp()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Windows XP Taskbar -->
     <div id="taskbar">
         <a href="../index.html" class="start-button" title="Start">
             <div class="start-logo"></div>
-            <span>start</span>
+            <span>Start</span>
         </a>
         <div class="taskbar-apps" id="taskbarApps"></div>
         <div class="system-tray">
@@ -100,6 +148,14 @@
         function closeAndGoHome() {
             closeApp('observation');
             window.location.href = '../index.html';
+        }
+
+        function openHelp() {
+            document.getElementById('helpOverlay').classList.remove('hidden');
+        }
+
+        function closeHelp() {
+            document.getElementById('helpOverlay').classList.add('hidden');
         }
     </script>
 </body>

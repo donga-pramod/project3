@@ -330,3 +330,85 @@ footer p {
         width: 100%;
     }
 }
+
+/* Help button in title bar */
+.help-btn {
+    background: linear-gradient(to bottom, #3b7ae0, #245DDB);
+    font-size: 13px;
+    font-family: Tahoma, sans-serif;
+}
+
+.help-btn:hover {
+    background: linear-gradient(to bottom, #4b8af0, #346de0);
+}
+
+/* Help Overlay + Dialog (classic XP style) */
+.help-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.help-overlay.hidden {
+    display: none;
+}
+
+.help-dialog {
+    background-color: #ece9d8;
+    border: 2px solid #0054e3;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 420px;
+    max-height: 85vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-title-bar {
+    background: linear-gradient(to right, #0a246a, #a6caf0);
+    color: white;
+    padding: 5px 6px 5px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.help-body {
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-y: auto;
+    color: #000;
+}
+
+.help-body p {
+    margin-bottom: 10px;
+}
+
+.help-body ol,
+.help-body ul {
+    margin: 6px 0 12px 18px;
+}
+
+.help-body li {
+    margin-bottom: 3px;
+}
+
+.help-footer {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.help-footer .xp-button {
+    min-width: 80px;
+}
