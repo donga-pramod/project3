@@ -1,8 +1,11 @@
+// Dating Profile Questionnaire - Script
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('datingForm');
     const resultBox = document.getElementById('result');
     const reportText = document.getElementById('reportText');
 
+    // ===== Form Submit =====
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -11,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showReport(data);
     });
 
+    // ===== Download CSV =====
     document.getElementById('downloadBtn').addEventListener('click', function () {
         const stored = localStorage.getItem('datingProfiles');
         if (!stored) {
@@ -22,11 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadCSV(responses);
     });
 
+    // ===== Clear Form =====
     document.getElementById('clearBtn').addEventListener('click', function () {
         form.reset();
         resultBox.classList.add('hidden');
     });
 
+    // ===== Helpers =====
     function collectFormData() {
         const interests = [];
         document.querySelectorAll('input[name="interests"]:checked').forEach(cb => {

@@ -1,113 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Project#3</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Assets/Taskbar/taskbar.css">
+</head>
+<body>
+    <!-- Main Navigation Window -->
     <div class="window">
-      <div class="title-bar">
-        <span class="title">Portfolio Project#3</span>
-      </div>
-      <div class="window-content">
-        <p class="instruction">Select a tool to continue:</p>
-
-        <div class="button-container">
-          <a href="Questionaire/index.html" class="xp-button">
-            Online Questionnaire
-          </a>
-
-          <a href="Observation-tool/index.html" class="xp-button">
-            Observation Tool
-          </a>
+        <div class="title-bar">
+            <span class="title">Portfolio Project#3</span>
         </div>
-      </div>
+        <div class="window-content">
+            <p class="instruction">Select a tool to continue:</p>
+            
+            <div class="button-container">
+                <a href="Questionaire/index.html" class="xp-button" onclick="openApp('questionnaire')">
+                    Online Questionnaire
+                </a>
+                
+                <a href="Observation-tool/index.html" class="xp-button" onclick="openApp('observation')">
+                    Observation Tool
+                </a>
+            </div>
+        </div>
 
-      <footer>
-        <p>
-          Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and
-          Mandal Rajnish [2670971]
-        </p>
-      </footer>
+        <footer>
+            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2573408]</p>
+        </footer>
     </div>
-    <div id="xp-clock">
-      <script>
-        const clock = document.getElementById("xp-clock");
 
-        function updateClockPosition() {
-          const w = window.innerWidth;
-          const h = window.innerHeight;
+    <!-- Recycle Bin Easter Egg -->
+    <div id="recycle-hotspot" title="Recycle Bin"></div>
 
-          const rightPercent = 0.017;
-          const bottomPercent = 0.012; 
-
-          clock.style.right = w * rightPercent + "px";
-          clock.style.bottom = h * bottomPercent + "px";
-        }
-
-        function updateClock() {
-          const now = new Date();
-          let hours = now.getHours();
-          const minutes = now.getMinutes().toString().padStart(2, "0");
-          const ampm = hours >= 12 ? "PM" : "AM";
-
-          hours = hours % 12;
-          hours = hours ? hours : 12;
-
-          clock.textContent = `${hours}:${minutes} ${ampm}`;
-        }
-
-        // Initialize
-        updateClock();
-        updateClockPosition();
-
-        // Keep updating
-        setInterval(updateClock, 1000);
-        window.addEventListener("resize", updateClockPosition);
-      </script>
+    <!-- Windows XP Taskbar -->
+    <div id="taskbar">
+        <a href="index.html" class="start-button" title="Start">
+            <div class="start-logo"></div>
+            <span>Start</span>
+        </a>
+        <div class="taskbar-apps" id="taskbarApps"></div>
+        <div class="system-tray">
+            <div id="xp-clock">12:00 AM</div>
+        </div>
     </div>
-    <div id="recycle-bin">
-      <script>
-        const hotspot = document.getElementById("recycle-bin");
 
-        function updateHotspot() {
-          const w = window.innerWidth;
-          const h = window.innerHeight;
-
-          const leftPercent = 0.91;
-          const rightPercent = 0.99;
-          const topPercent = 0.81;
-          const bottomPercent = 0.9;
-
-          const left = w * leftPercent;
-          const width = w * (rightPercent - leftPercent);
-          const top = h * topPercent;
-          const height = h * (bottomPercent - topPercent);
-
-          hotspot.style.left = left + "px";
-          hotspot.style.top = top + "px";
-          hotspot.style.width = width + "px";
-          hotspot.style.height = height + "px";
-        }
-
-        updateHotspot();
-        window.addEventListener("resize", updateHotspot);
-
-        document.addEventListener("mousemove", function (e) {
-          const rect = hotspot.getBoundingClientRect();
-          const isOver =
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom;
+    <script src="Assets/Taskbar/taskbar.js"></script>
+    <script>
+        // Recycle Bin → Rickroll
+        document.getElementById('recycle-hotspot').addEventListener('click', function() {
+            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
         });
-
-        hotspot.addEventListener("click", function () {
-          window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-        });
-      </script>
-    </div>
-  </body>
+    </script>
+</body>
 </html>
