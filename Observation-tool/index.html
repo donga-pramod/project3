@@ -1,1 +1,106 @@
-<P>HI</P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Safari — Observation Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Assets/Taskbar/taskbar.css">
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span class="title">Human Safari — Observation Tool</span>
+            <div class="window-controls">
+                <button class="control-btn minimize-btn" title="Minimize" onclick="minimizeApp('observation')">_</button>
+                <button class="control-btn close-btn" title="Close" onclick="closeAndGoHome()">×</button>
+            </div>
+        </div>
+
+        <div class="window-content">
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-label">Total Catches</span>
+                    <span class="score-value" id="totalCatches">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Score</span>
+                    <span class="score-value" id="totalScore">0</span>
+                </div>
+            </div>
+
+            <p class="intro">
+                Go outside (or look around) and catch humans in their natural habitat.  
+                Select a category and hit <strong>Catch!</strong>
+            </p>
+
+            <!-- Category Selection -->
+            <div class="form-group">
+                <label>What did you observe?</label>
+                <div class="category-grid" id="categoryGrid">
+                    <button type="button" class="category-btn" data-category="Phone Zombie" data-points="10">📱 Phone Zombie</button>
+                    <button type="button" class="category-btn" data-category="Matching Couple" data-points="25">💑 Matching Couple</button>
+                    <button type="button" class="category-btn" data-category="Headphones Warrior" data-points="10">🎧 Headphones Warrior</button>
+                    <button type="button" class="category-btn" data-category="Food Walker" data-points="15">🍔 Food Walker</button>
+                    <button type="button" class="category-btn" data-category="Self Talker" data-points="20">🗣️ Self Talker</button>
+                    <button type="button" class="category-btn" data-category="Fast Walker" data-points="10">🏃 Fast Walker</button>
+                    <button type="button" class="category-btn" data-category="Lost Tourist" data-points="30">🗺️ Lost Tourist</button>
+                    <button type="button" class="category-btn" data-category="Other" data-points="5">👀 Other</button>
+                </div>
+            </div>
+
+            <!-- Optional Note -->
+            <div class="form-group">
+                <label for="note">Quick note (optional)</label>
+                <input type="text" id="note" placeholder="e.g. near the park gate...">
+            </div>
+
+            <!-- Catch Button -->
+            <div class="catch-area">
+                <button type="button" id="catchBtn" class="catch-btn" disabled>Select a category first</button>
+            </div>
+
+            <!-- Recent Captures -->
+            <div class="recent-section">
+                <h3>Recent Captures</h3>
+                <div id="recentList" class="recent-list">
+                    <p class="empty-msg">No captures yet. Go hunting!</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="button-row">
+                <button type="button" id="downloadBtn" class="xp-button">Download Dataset (CSV)</button>
+                <button type="button" id="clearBtn" class="xp-button">Clear All Data</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Developed by Aryal Pramod [2573412], Khatiwada Rabin [2573400] and Mandal Rajnish [2573408]</p>
+        </footer>
+    </div>
+
+    <!-- Windows XP Taskbar -->
+    <div id="taskbar">
+        <a href="../index.html" class="start-button" title="Start">
+            <div class="start-logo"></div>
+            <span>start</span>
+        </a>
+        <div class="taskbar-apps" id="taskbarApps"></div>
+        <div class="system-tray">
+            <div id="xp-clock">12:00 AM</div>
+        </div>
+    </div>
+
+    <script src="../Assets/Taskbar/taskbar.js"></script>
+    <script src="script.js"></script>
+    <script>
+        openApp('observation');
+
+        function closeAndGoHome() {
+            closeApp('observation');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

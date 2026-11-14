@@ -1,0 +1,332 @@
+/* Human Safari - Observation Tool (Windows XP style) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    background-color: #3a6ea5;
+    background-image: linear-gradient(to bottom, #5a9bd5 0%, #3a6ea5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px 50px;
+    cursor: url('../Assets/Cursors/arrow.cur'), default;
+}
+
+/* Main window */
+.window {
+    background-color: #ece9d8;
+    border: 2px solid #0054e3;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    max-width: 580px;
+}
+
+/* Title bar */
+.title-bar {
+    background: linear-gradient(to right, #0a246a, #a6caf0);
+    color: white;
+    padding: 5px 6px 5px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Window controls */
+.window-controls {
+    display: flex;
+    gap: 2px;
+    margin-left: 8px;
+}
+
+.control-btn {
+    width: 22px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    padding: 0;
+}
+
+.minimize-btn {
+    background: linear-gradient(to bottom, #3b7ae0, #245DDB);
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+
+.minimize-btn:hover {
+    background: linear-gradient(to bottom, #4b8af0, #346de0);
+}
+
+.close-btn {
+    background: linear-gradient(to bottom, #e81123, #c50f1f);
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background: #e81123;
+}
+
+/* Content */
+.window-content {
+    padding: 16px 20px 12px;
+}
+
+.intro {
+    font-size: 13px;
+    margin-bottom: 14px;
+    line-height: 1.45;
+    color: #222;
+}
+
+/* Score board */
+.score-board {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.score-item {
+    flex: 1;
+    background: #fff;
+    border: 2px solid;
+    border-color: #848484 #fff #fff #848484;
+    padding: 10px;
+    text-align: center;
+}
+
+.score-label {
+    display: block;
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.score-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0a246a;
+}
+
+/* Form group */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #000;
+}
+
+/* Category grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.category-btn {
+    padding: 10px 8px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 12px;
+    background-color: #ece9d8;
+    border: 2px solid;
+    border-color: #fff #848484 #848484 #fff;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    text-align: left;
+}
+
+.category-btn:hover {
+    background-color: #f5f2e5;
+}
+
+.category-btn.selected {
+    background-color: #d0e0f7;
+    border-color: #0a246a #848484 #848484 #0a246a;
+    font-weight: bold;
+}
+
+/* Note input */
+input[type="text"] {
+    width: 100%;
+    padding: 6px 8px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    border: 2px solid;
+    border-color: #848484 #fff #fff #848484;
+    background: #fff;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #0a246a;
+}
+
+/* Catch button */
+.catch-area {
+    margin: 18px 0;
+    text-align: center;
+}
+
+.catch-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to bottom, #3c9a2c, #1e6c14);
+    border: 2px solid;
+    border-color: #5bc24a #1a5c12 #1a5c12 #5bc24a;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.catch-btn:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+.catch-btn:active:not(:disabled) {
+    border-color: #1a5c12 #5bc24a #5bc24a #1a5c12;
+}
+
+.catch-btn:disabled {
+    background: #a0a0a0;
+    border-color: #ccc #666 #666 #ccc;
+    cursor: not-allowed;
+    color: #eee;
+}
+
+/* Recent captures */
+.recent-section {
+    margin-top: 18px;
+}
+
+.recent-section h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #0a246a;
+}
+
+.recent-list {
+    background: #fff;
+    border: 2px solid;
+    border-color: #848484 #fff #fff #848484;
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 6px;
+}
+
+.recent-item {
+    padding: 6px 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+.recent-item .cat-name {
+    font-weight: bold;
+}
+
+.recent-item .points {
+    color: #1e6c14;
+    white-space: nowrap;
+}
+
+.empty-msg {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    padding: 12px;
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+.xp-button {
+    display: inline-block;
+    padding: 7px 14px;
+    font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ece9d8;
+    border: 2px solid;
+    border-color: #fff #848484 #848484 #fff;
+    cursor: url('../Assets/Cursors/harrow.cur'), pointer;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.xp-button:hover {
+    background-color: #f5f2e5;
+}
+
+.xp-button:active {
+    border-color: #848484 #fff #fff #848484;
+    box-shadow: none;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #b0b0b0;
+    padding: 9px 14px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 11px;
+    color: #444;
+    line-height: 1.35;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .xp-button {
+        width: 100%;
+    }
+}

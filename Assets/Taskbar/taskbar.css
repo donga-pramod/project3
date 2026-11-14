@@ -87,6 +87,7 @@
     text-overflow: ellipsis;
     cursor: pointer;
     margin-top: 1px;
+    min-width: 0;
 }
 
 .taskbar-app:hover {
