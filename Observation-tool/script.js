@@ -1,5 +1,3 @@
-// Human Safari - Observation Tool Script
-
 document.addEventListener('DOMContentLoaded', function () {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const catchBtn = document.getElementById('catchBtn');
@@ -11,11 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedCategory = null;
     let selectedPoints = 0;
 
-    // Load existing data
     let captures = JSON.parse(localStorage.getItem('humanSafariCaptures') || '[]');
     updateUI();
 
-    // Category selection
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', function () {
             categoryBtns.forEach(b => b.classList.remove('selected'));
@@ -29,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Catch button
     catchBtn.addEventListener('click', function () {
         if (!selectedCategory) return;
 
@@ -56,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 800);
     });
 
-    // Download CSV
     document.getElementById('downloadBtn').addEventListener('click', function () {
         if (captures.length === 0) {
             alert('No captures yet. Go hunt some humans first!');
@@ -65,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadCSV(captures);
     });
 
-    // Clear all data
     document.getElementById('clearBtn').addEventListener('click', function () {
         if (confirm('Clear all captures? This cannot be undone.')) {
             captures = [];
@@ -81,14 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ===== Helpers =====
     function updateUI() {
         // Score
         totalCatchesEl.textContent = captures.length;
         const score = captures.reduce((sum, c) => sum + c.points, 0);
         totalScoreEl.textContent = score;
 
-        // Recent list
         if (captures.length === 0) {
             recentList.innerHTML = '<p class="empty-msg">No captures yet. Go hunting!</p>';
             return;

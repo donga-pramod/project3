@@ -1,5 +1,3 @@
-/* Basic Enterprise / Windows XP inspired theme - Splash Screen */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +19,6 @@ body {
     cursor: url('Assets/Cursors/arrow.cur'), default;
 }
 
-/* Main window frame */
 .window {
     background-color: #ece9d8;
     border: 2px solid #0054e3;
@@ -31,7 +28,6 @@ body {
     z-index: 10;
 }
 
-/* Title bar */
 .title-bar {
     background: linear-gradient(to right, #0a246a, #a6caf0);
     color: white;
@@ -46,7 +42,6 @@ body {
     flex: 1;
 }
 
-/* Content area */
 .window-content {
     padding: 30px 25px 24px;
     text-align: center;
@@ -58,7 +53,6 @@ body {
     margin-bottom: 28px;
 }
 
-/* Button container */
 .button-container {
     display: flex;
     flex-direction: column;
@@ -66,7 +60,6 @@ body {
     align-items: center;
 }
 
-/* Classic XP-style buttons */
 .xp-button {
     display: inline-block;
     width: 260px;
@@ -94,7 +87,6 @@ body {
     padding: 11px 15px 9px 17px;
 }
 
-/* Footer */
 footer {
     border-top: 1px solid #b0b0b0;
     padding: 9px 14px;
@@ -108,7 +100,6 @@ footer p {
     margin: 0;
 }
 
-/* Recycle Bin Hotspot */
 #recycle-hotspot {
     position: fixed;
     bottom: 48px;
@@ -117,7 +108,6 @@ footer p {
     height: 78px;
 }
 
-/* Responsive */
 @media (max-width: 500px) {
     .window {
         max-width: 100%;

@@ -1,10 +1,4 @@
-// ========================================
-// Windows XP Taskbar - Logic only
-// (HTML is placed directly in each page)
-// ========================================
-
 (function () {
-  // Detect if we are in a subfolder
   const isInSubfolder =
     window.location.pathname.includes("/Questionaire/") ||
     window.location.pathname.includes("/Observation-tool/");
@@ -14,7 +8,6 @@
   const questionnairePath = basePath + "Questionaire/index.html";
   const observationPath = basePath + "Observation-tool/index.html";
 
-  // ===== Open App Helpers =====
   window.openApp = function (appName) {
     let openApps = JSON.parse(localStorage.getItem("openApps") || "[]");
     if (!openApps.includes(appName)) {
@@ -62,7 +55,6 @@
     });
   }
 
-  // ===== Live Clock =====
   function updateClock() {
     const clockEl = document.getElementById("xp-clock");
     if (!clockEl) return;
@@ -76,7 +68,6 @@
     clockEl.textContent = `${hours}:${minutes} ${ampm}`;
   }
 
-  // Initialize when DOM is ready
   function init() {
     updateClock();
     setInterval(updateClock, 1000);
